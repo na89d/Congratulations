@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Congratulations</title>
+<title>Closed ✦ Thank You for Visiting</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 <style>
 :root{--bg1:#fff5f8;--bg2:#fde3ec;--bg3:#f9d3e3;--ink:#6b2f4a;--soft:#a1657f;--gold:#e0789f;--card:rgba(255,255,255,.55);--edge:rgba(255,255,255,.9);--orb1:#ffb3cc;--orb2:#f7c6e0;--orb3:#ffd9e4;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -73,59 +73,18 @@ button.pri{background:linear-gradient(120deg,var(--gold),#f59bbd);border:none;bo
 
 <main>
 <section class="scene on" id="s0">
-  <div class="tag"></div>
-  <h1> Hey... Congratulations,<br><em>Sanjida</em></h1>
+  <div class="tag">Notice</div>
+  <h1>Thank you<br>for <em>visiting</em></h1>
   <div class="divider"></div>
-  <p class="big">on your wedding.</p>
-  <p>Sorry for the late wishes — kintu some blessings never expire.</p>
-  <button class="pri" onclick="go(1)">NEXT</button>
+  <p class="big">The website is no longer accessible.</p>
+  <div class="sign" style="opacity:1;animation:shine 6s linear infinite;font-size:1.9rem;margin-top:14px"></div>
 </section>
-
-<section class="scene" id="s1">
-  <div class="tag">Wishes</div>
-  <h2>For your <em>new life</em></h2>
-  <p class="wish">Hope the very best for your new life</p>
-  <p class="wish">May your home be full of warmth, laughter and joy.</p>
-  <p class="wish">Wishing you both a lifetime of love, happiness, and beautiful memories. </p>
-  <p class="wish big">Wishing you a lifetime of happiness, together.</p>
-  <div style="margin-top:14px"><button onclick="go(2)">CONTINUE</button></div>
-</section>
-
-<section class="scene" id="s2">
-  <div class="tag">One small question</div>
-  <h2>Do you know <em>keh</em> fataiseh?</h2>
-  <div class="arena" id="arena">
-    <button id="yes">Yes</button>
-    <button id="no" class="pri">No</button>
-  </div>
-
-</section>
-
-<section class="scene" id="s3">
-  <p>I know, because we have never met.<br>But good wishes don't need an introduction.</p><br>
-  <div class="tag">Best wishes</div>
-  <div class="sign">nahid</div>
-  </section>
 </main>
-<div class="dots" id="dots"><i class="a"></i><i></i><i></i><i></i></div>
-
 <script>
-var cur=0,S=[].slice.call(document.querySelectorAll('.scene')),D=[].slice.call(document.querySelectorAll('#dots i'));
-function go(n){S[cur].classList.remove('on');S[cur].classList.add('out');var p=cur;setTimeout(function(){S[p].classList.remove('out')},900);cur=n;S[n].classList.add('on');D.forEach(function(d,i){d.classList.toggle('a',i===n)});if(n===2)placeYes();}
 // parallax layers
 function par(x,y){document.querySelectorAll('#bg [data-d]').forEach(function(e){var d=+e.dataset.d;e.style.transform='translate('+(x*d)+'px,'+(y*d)+'px)'})}
 addEventListener('pointermove',function(e){par(e.clientX/innerWidth-.5,e.clientY/innerHeight-.5)});
 addEventListener('deviceorientation',function(e){if(e.gamma!=null)par((e.gamma||0)/60,((e.beta||0)-45)/90)});
-// dodging Yes
-var yes=document.getElementById('yes'),arena=document.getElementById('arena'),hint=document.getElementById('hint'),tries=0;
-var msgs=["Nice try 😌","Too slow!","It slipped away…","Only one door is open.","Yes is shy today.","Try the other one ✨"];
-function placeYes(){tries=0;yes.style.left='calc(50% - 130px)';yes.style.top='50px';yes.style.transform='scale(1)';hint.textContent='Choose wisely…'}
-function dodge(e){if(e)e.preventDefault();var w=arena.clientWidth-yes.offsetWidth,h=arena.clientHeight-yes.offsetHeight;
- yes.style.left=Math.random()*w+'px';yes.style.top=Math.random()*h+'px';tries++;
- yes.style.transform='scale('+Math.max(.5,1-tries*.07)+') rotate('+(Math.random()*30-15)+'deg)';hint.textContent=msgs[tries%msgs.length]}
-['mouseenter','touchstart','pointerdown','focus'].forEach(function(t){yes.addEventListener(t,dodge,{passive:false})});
-yes.addEventListener('click',dodge);
-document.getElementById('no').addEventListener('click',function(){go(3);burst()});
 // petals + sparkle burst
 var c=document.getElementById('c'),x=c.getContext('2d'),P=[],B=[];
 function rs(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio}rs();addEventListener('resize',rs);
